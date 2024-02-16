@@ -8,6 +8,7 @@ package body fracciones is
 
     package Es_int is new Ada.Text_IO.Integer_IO(Integer);
 
+    -- Recive dos fracciones y devuelve la SUMA de ambas fracciones
     function "+" (X, Y: fraccion_t) return fraccion_t is
         result : fraccion_t;
     begin
@@ -16,6 +17,7 @@ package body fracciones is
         return result;
     end "+";
 
+    -- Recive una fraccione y devuelve el INVERSO  de la fraccion
     function "-" (X: fraccion_t) return fraccion_t is
     result : fraccion_t;
     begin
@@ -24,6 +26,7 @@ package body fracciones is
         return result;
     end "-";
 
+    -- Recive dos fracciones y devuelve la RESTA de ambas fracciones
     function "-" (X, Y: fraccion_t) return fraccion_t is
     result : fraccion_t;
     begin
@@ -31,6 +34,7 @@ package body fracciones is
         return result;
     end "-";
 
+    -- Recive dos fracciones y devuelve el PRODUCTO de ambas fracciones
     function "*" (X, Y: fraccion_t) return fraccion_t is
     result : fraccion_t;
     begin 
@@ -39,6 +43,7 @@ package body fracciones is
         return result;
     end "*";
 
+    -- Recive dos fracciones y devuelve la DIVISION de ambas fracciones
     function "/" (X, Y: fraccion_t) return fraccion_t is   
     result : fraccion_t;
     num : Integer := X.numerador * Y.denominador;
@@ -61,6 +66,7 @@ package body fracciones is
         return result;
     end "/";
 
+    -- Recive dos fracciones y devuelve true si son IGUALES, false si no lo son
     function "=" (X, Y: fraccion_t) return boolean is
     begin
         if X.denominador * Y.numerador = X.numerador * Y.denominador then
@@ -70,6 +76,7 @@ package body fracciones is
         end if;
     end "=";
 
+    -- Funcion privada que me devuelve el maximo comun divisor de dos numeros. Se utiliza el algoritmo de Euclides
     function mcd (a, b: Integer) return Integer is
     begin
         if b = 0 then 
@@ -79,6 +86,7 @@ package body fracciones is
         end if;
     end mcd;
 
+    -- Funcion privada que me simplifica una fraccion irreductible
     function Simplificar (F: fraccion_t) return fraccion_t is
     result : fraccion_t;
     begin
@@ -87,6 +95,7 @@ package body fracciones is
         return result;
     end Simplificar;
 
+    -- Constructor de las fracciones. Recive dos enteros y devuelve una fraccion
     function "/" (X, Y: Integer) return fraccion_t is
     result : fraccion_t;
     begin
@@ -101,20 +110,18 @@ package body fracciones is
         return result;
     end "/";
 
-    -- Procedures
+    -- Proceso para leer una fraccion
     procedure Leer (F: out fraccion_t) is
     begin
         Es_int.Get(F.numerador);
         Es_int.Get(F.denominador);
     end Leer;
 
+    -- Proceso para escribir una fraccion
     procedure Escribir (F: fraccion_t) is
     begin
-        --  Es_int.Put(F.numerador);
-        Ada.Integer_Text_IO.Put(Item => Integer(F.numerador), Width => 2);
-        Put(" /");
-        Ada.Integer_Text_IO.Put(Item => Integer(F.denominador), Width => 2); New_Line;
-        --  Es_int.Put(F.denominador); New_Line;
+        Ada.Integer_Text_IO.Put(Item => Integer(F.numerador), Width => 2);      Put(" /");
+        Ada.Integer_Text_IO.Put(Item => Integer(F.denominador), Width => 2);    New_Line;
     end Escribir;
 
 
