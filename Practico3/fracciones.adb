@@ -2,6 +2,7 @@ with Ada.Text_IO;
 use Ada.Text_IO;  
 
 with Ada.Integer_Text_IO;
+with Ada.Strings.Fixed;
 
 
 package body fracciones is 
@@ -106,7 +107,7 @@ package body fracciones is
         end if;
         result.denominador := abs(Y);
 
-        result := Simplificar(result);
+        --result := Simplificar(result);
         return result;
     end "/";
 
@@ -138,7 +139,8 @@ package body fracciones is
 
     function Imprimir (F: fraccion_t) return String is
     begin
-        return Integer'Image(F.numerador) & " /" & Integer'Image(F.denominador);
+            return  Ada.Strings.Fixed.Trim(Integer'Image(F.numerador), Ada.Strings.Both) & "/" & 
+                    Ada.Strings.Fixed.Trim(Integer'Image(F.denominador), Ada.Strings.Both);
     end Imprimir;
 
 
