@@ -4,7 +4,7 @@ with fracciones; use fracciones;                        -- Se importa el paquete
 
 procedure cola_fracciones is
 
-    package Cola_de_fracciones is new Colas (fracciones.fraccion_t, fracciones.Imprimir);   -- Instancia el paquete genérico Colas con el tipo definido en fracciones
+    package Cola_de_fracciones is new Colas (fraccion_t, Imprimir);   -- Instancia el paquete genérico Colas con el tipo definido en fracciones
     use Cola_de_fracciones;
 
     cola_fracciones: cola_t;                            -- Colas de fracciones

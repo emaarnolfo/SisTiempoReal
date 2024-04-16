@@ -1,0 +1,3 @@
+T_Ambiente =  2.50000E+01
+Tiempo de respuesta =  1.83430E+04
+Cp =  2.50012E+01
