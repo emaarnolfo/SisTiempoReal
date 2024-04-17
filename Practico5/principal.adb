@@ -1,6 +1,5 @@
-with Ada.Text_IO, Sensor, Calefactor, Ada.Real_Time; 
-use Sensor;
-use Ada.Text_IO, Ada.Real_Time;
+with Ada.Text_IO, Sensor, Calefactor, Ada.Real_Time, PID; 
+use Sensor, Ada.Text_IO, Ada.Real_Time;
 
 
 procedure principal is 
@@ -11,10 +10,6 @@ procedure principal is
 
     Temp_delta, Temp_delta_max, ord_origen : Float;
     Kp, Ki, Kd, tao : Float;
-    
-    -- Now   : Ada.Real_Time.Time;
-    -- Count : Ada.Real_Time.Seconds_Count;
-    -- Sub   : Ada.Real_Time.Time_Span;
 
     Start_time, Stop_time, Next_time  : Time;
     Elapsed_time                      : Time_Span;
@@ -126,10 +121,12 @@ begin
     Ada.Text_IO.Put_Line("Kp = " & Kp'Image);
     Ada.Text_IO.Put_Line("Ki = " & Ki'Image);
     Ada.Text_IO.Put_Line("Kd = " & Kd'Image);
+    Ada.Text_IO.Put_Line("pendiente = " & pendiente'Image);
+    Ada.Text_IO.Put_Line("ord_origen = " & ord_origen'Image);
 
     Create(Archivo, Out_File, "Constantes.txt");
 
-    Ada.Text_IO.Put_Line(Archivo, "K = " & Temp_amb'Image);
+    Ada.Text_IO.Put_Line(Archivo, "K = " & Temp'Image);
     Ada.Text_IO.Put_Line(Archivo, "tao = " & tao'Image);
     Ada.Text_IO.Put_Line(Archivo, "L = " & L'Image);
     Ada.Text_IO.Put_Line(Archivo, "Kp = " & Kp'Image);
@@ -138,6 +135,6 @@ begin
 
     Close(Archivo);
 
-    Put_Line("Fin del programa Medir1");
+    Put_Line("Fin del programa Principal1");
 
 end principal;

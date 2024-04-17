@@ -12,10 +12,12 @@ package PID is
                                         U: out    Salida);
 private
    type Controlador is record
-      -- Parámetros del controlador
+      -- Parï¿½metros del controlador
       Kp, Ki, Kd: Real;
+      
       -- Estado del controlador
       S_Anterior    : Real := 0.0; -- s(n-1) Condiciones de
       Error_Anterior: Real := 0.0; -- e(n-1) reposo inicial
+      
    end record;
 end PID;
