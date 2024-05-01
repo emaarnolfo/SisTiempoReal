@@ -2,7 +2,7 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Real_Time; use Ada.Real_Time;
 with Ada.Execution_Time; use Ada.Execution_Time;
 
-package body proc is 
+package body procesos is 
 
     T_Inicio    :   CPU_Time;
     Dif         :   Time_Span   := Milliseconds(200);
@@ -54,4 +54,4 @@ package body proc is
         null;
     end P4;
 
-end proc;
+end procesos;
