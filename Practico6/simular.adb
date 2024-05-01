@@ -1,5 +1,5 @@
-with Ada.Text_IO, plan, procesos, Ada.Real_Time, Ada.Task_Identification;
-use Ada.Text_IO, plan, procesos, Ada.Real_Time, Ada.Task_Identification;
+with Ada.Text_IO, plan, proc, Ada.Real_Time, Ada.Task_Identification;
+use Ada.Text_IO, plan, proc, Ada.Real_Time, Ada.Task_Identification;
 
 
 procedure simular is

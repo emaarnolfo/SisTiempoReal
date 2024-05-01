@@ -18,12 +18,8 @@ begin
     Put_line ("|---------------------------|");
     
     for I in Tiempos'Range loop
-        --  Put_Line ("| " & I'Image & " | " & Tiempos(I)'Image & " |");
-        --  Put ("| ");Put (I, Width=>13); Put (" ");
-        --  Put (Tiempos(I), Width=> 9); Put (" |");
         Put ("| "); ES_tiempos.Put (Item => I, Width => 13); Put (" |");
         ES_tiempos.Put(Item => Tiempos(I), Width => 10); Put (" |");   
-
         New_Line;
     end loop;
 

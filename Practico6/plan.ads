@@ -1,4 +1,4 @@
-
+-- Paquete donde se definen los tipos y procedimientos necesarios para la planificación de las tareas
 package Plan is 
 
     type ref_Procedimiento_t        is access   procedure;

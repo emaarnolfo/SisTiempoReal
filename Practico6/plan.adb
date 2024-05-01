@@ -4,6 +4,7 @@ with Ada.Real_Time; use Ada.Real_Time;
 
 package body Plan is
 
+    -- Procedimiento para medir el tiempo de CPU que demora cada procedimiento
     procedure Medir (Procedimientos: array_ref_Procedimiento_T; Tiempos : out array_Tiempos_t) is  
         T_Inicio        :   CPU_Time;
         T_Ejecucion     :   Time_Span;
@@ -11,9 +12,10 @@ package body Plan is
     begin
         for I in Procedimientos'Range loop    
             T_Inicio := Clock;
-            Procedimientos(I).all;
+            Procedimientos(I).all;              --Se llama al procedimiento
             T_Ejecucion := Clock - T_Inicio;
 
+            -- Se calcula el tiempo de ejecucion en milisegundos y se guarda en el array de tiempos
             Tiempos(I) := Natural(To_Duration(T_Ejecucion)*1000);
         end loop;
     end Medir;
@@ -45,7 +47,7 @@ package body Plan is
             w := Float(Tareas(I).C);
 
             while true loop
-                -- Calcular nuevo w(n+1);
+
                 w_new := Float(Tareas(I).C);
 
                 for J in Tareas'Range loop

@@ -26,6 +26,7 @@ procedure prueba is
 
 begin
 
+    Put_line ("Ejemplo 1");
     Planificar(Tareas);
     Put_line (
     "+---------------------------------------------------+");
@@ -52,6 +53,7 @@ begin
     Put_line (
     "+---------------------------------------------------+");
 
+    Put_line ("Ejemplo 2");
     Plan.Medir(Procedimientos, Tareas2);
     Planificar(Tareas2);
 
